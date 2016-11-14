@@ -11,7 +11,10 @@ class ExpensesController < ApplicationController
   	else	
   		@expenses = Expense.order("date DESC")
   	end
-     
+    @user = User.find(current_user.id)
+    @expenses = @user.expenses
+
+   
   end
 
   
