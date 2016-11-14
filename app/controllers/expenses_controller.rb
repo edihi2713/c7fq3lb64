@@ -7,6 +7,7 @@ class ExpensesController < ApplicationController
   	elsif params[:concept].present?
   		@expenses=Expense.where("concept like ?","%#{params[:concept]}%")
   	elsif params[:category_id].present? 
+      
   		@expenses=Expense.where("category_id = ?","#{params[:category_id]}")
   	else	
   		@expenses = Expense.order("date DESC")
@@ -14,7 +15,6 @@ class ExpensesController < ApplicationController
     @user = User.find(current_user.id)
     @expenses = @user.expenses
 
-   
   end
 
   
